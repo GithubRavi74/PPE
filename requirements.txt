@@ -1,6 +1,8 @@
-ultralytics
+ultralytics==8.0.196
 opencv-python
 flask
 streamlit
 numpy
 pillow
+
+ 
