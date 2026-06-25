@@ -2,11 +2,16 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
-import torch
-torch.serialization.safe_globals = []
-from ultralytics import YOLO
 
+
+import torch
+from ultralytics.nn.tasks import DetectionModel
+# allow YOLO model class for PyTorch 2.6+
+torch.serialization.add_safe_globals([DetectionModel])
+from ultralytics import YOLO
 model = YOLO("models/best.pt")
+
+
 
 st.title("🦺 PPE Detection System (YOLOv8)")
 
