@@ -1,7 +1,10 @@
 import streamlit as st
-from ultralytics import YOLO
 from PIL import Image
 import numpy as np
+
+import torch
+torch.serialization.safe_globals = []
+from ultralytics import YOLO
 
 model = YOLO("models/best.pt")
 
