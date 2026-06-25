@@ -9,6 +9,8 @@ from ultralytics.nn.tasks import DetectionModel
 # allow YOLO model class for PyTorch 2.6+
 torch.serialization.add_safe_globals([DetectionModel])
 from ultralytics import YOLO
+
+torch.load = lambda f, map_location=None: torch._legacy_load(f, map_location=map_location)
 model = YOLO("models/best.pt")
 
 
